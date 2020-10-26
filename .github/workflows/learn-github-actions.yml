@@ -6,8 +6,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Find and Replace
-      uses: shitiomatic/str-replace@master
-      with:
+    - uses: jacobtomlinson/gha-find-replace@0.1.2
+    - with:
         find: regexp.MustCompile(`(?m)(\[(.+)\]\(([^\s]+)(?:\s"(.+)")?\))(?!\s-\s\<a\sclass=\"archival\")`)
         replace: '$1 - <a class="archival" aria-label="Internet Archive copy of previous link" href="http://web.archive.org/web/$3">(archive)</a>'
         include: "test1.md"        
