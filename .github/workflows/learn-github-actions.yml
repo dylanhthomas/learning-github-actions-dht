@@ -7,5 +7,5 @@ jobs:
       - uses: actions/checkout@v2
       - run: echo "message 1"
       - run: |
-          replace '(\[(.+)\]\(([^\s]+)(?: "(.+)")?\))(?!\s-\s\<a\sclass=\"archival\")' '$1 - <a class="archival" aria-label="Internet Archive copy of previous link" href="http://web.archive.org/web/'$current_date'/$3">(archive)</a>' test1.md
+          replace '(\[(.+)\]\(([^\s]+)(?: "(.+)")?\))(?!\s-\s\<a\sclass=\"archival\")' '$1 - <a class="archival" aria-label="Internet Archive copy of previous link" href="http://web.archive.org/web/$3">(archive)</a>' test1.md
       - run: echo "One last message"
