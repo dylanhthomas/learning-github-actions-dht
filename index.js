@@ -4,6 +4,9 @@ const globby = require("globby");
 const replace = require('replace');
 
 
+
+async function main() {
+
 try {
         const files = {};
         const glob = `${GITHUB_WORKSPACE}/**/*.{html,md}`;
@@ -25,3 +28,7 @@ try {
 } catch (error) {
     core.setFailed(error.message)
 }
+}
+
+
+main();
