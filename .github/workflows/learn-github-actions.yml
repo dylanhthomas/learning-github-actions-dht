@@ -1,14 +1,14 @@
-name: Way Back Links
-on: [push]
+name: My Workflow
+on: [push, pull_request]
 jobs:
-  wayback-links:
+  build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Find and Replace
-    - uses: jacobtomlinson/gha-find-replace@0.1.2
-    - with:
-        find: regexp.MustCompile(`(?m)(\[(.+)\]\(([^\s]+)(?:\s"(.+)")?\))(?!\s-\s\<a\sclass=\"archival\")`)
-        replace: '$1 - <a class="archival" aria-label="Internet Archive copy of previous link" href="http://web.archive.org/web/$3">(archive)</a>'
-        include: "test1.md"        
+      - uses: actions/checkout@v2
+      - name: Find and Replace
+        uses: jacobtomlinson/gha-find-replace@master
+        with:
+          find: regexp.MustCompile(`(?m)(\[(.+)\]\(([^\s]+)(?:\s"(.+)")?\))(?!\s-\s\<a\sclass=\"archival\")`)
+          replace: '$1 - <a class="archival" aria-label="Internet Archive copy of previous link" href="http://web.archive.org/web/$3">(archive)</a>'
+          include: "test1.md"        
         
