@@ -3,9 +3,8 @@ const github = require('@actions/github');
 const globby = require("globby");
 const replace = require('replace');
 
-async function main() {
-
-try {
+async function run() {
+  try {
         const files = {};
         const glob = `${GITHUB_WORKSPACE}/**/*.{html,md}`;
         const paths = await globby(glob);
@@ -23,10 +22,9 @@ try {
             silent: false,
         });
 
-} catch (error) {
-    core.setFailed(error.message)
-}
+    } catch (error) {
+        core.setFailed(error.message)
+    }
 }
 
-
-main();
+run()
