@@ -6,6 +6,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
-      - uses: dylanhthomas/learning-github-actions-dht@v3
+      - uses: dylanhthomas/learning-github-actions-dht@v6
       - run: npm install -g bats
       - run: bats -v
