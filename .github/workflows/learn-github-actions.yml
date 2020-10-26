@@ -8,7 +8,7 @@ jobs:
     - name: Find and Replace
       uses: shitiomatic/str-replace@master
       with:
-        find: '/(\[(.+)\]\(([^\s]+)(?: "(.+)")?\))(?!\s-\s\<a\sclass=\"archival\")'
+        find: 'qr/(\[(.+)\]\(([^\s]+)(?:\s"(.+)")?\))(?!\s-\s\<a\sclass=\"archival\")/mp'
         replace: '$1 - <a class="archival" aria-label="Internet Archive copy of previous link" href="http://web.archive.org/web/$3">(archive)</a>'
         include: "test1.md"        
         
