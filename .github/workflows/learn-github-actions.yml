@@ -14,10 +14,8 @@ jobs:
         run: npm install -g replace
       
       - name: replace links
-        run: echo "message 1"
         run: |
             replace '(\[(.+)\]\(([^\s]+)(?: "(.+)")?\))(?!\s-\s\<a\sclass=\"archival\")' '$1 - <a class="archival" aria-label="Internet Archive copy of previous link" href="http://web.archive.org/web/$3">(archive)</a>' test1.md
-        run: echo "One last message"
         
       - name: Commit changes
         uses: EndBug/add-and-commit@v5
