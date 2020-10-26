@@ -10,4 +10,5 @@ jobs:
       with:
         find: '/(\[(.+)\]\(([^\s]+)(?: "(.+)")?\))(?!\s-\s\<a\sclass=\"archival\")'
         replace: '$1 - <a class="archival" aria-label="Internet Archive copy of previous link" href="http://web.archive.org/web/$3">(archive)</a>'
-        include: "*.md"  # Do not modify Python files
+        include: "test1.md"        
+        
