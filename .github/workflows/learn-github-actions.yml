@@ -6,6 +6,8 @@ jobs:
     steps:
       - name: setup
         uses: actions/checkout@v2
+        
+      - name: install node
         uses: actions/setup-node@v1
         
       - name: install replace
