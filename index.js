@@ -6,7 +6,7 @@ const replace = require('replace');
 async function run() {
   try {
         const files = {};
-        const glob = `${GITHUB_WORKSPACE}/**/*.{html,md}`;
+        const glob = `${process.env.GITHUB_WORKSPACE}/**/*.{html,md}`;
         const paths = await globby(glob);
 
 
