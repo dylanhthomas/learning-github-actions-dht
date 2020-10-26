@@ -3,8 +3,6 @@ const github = require('@actions/github');
 const globby = require("globby");
 const replace = require('replace');
 
-
-
 async function main() {
 
 try {
