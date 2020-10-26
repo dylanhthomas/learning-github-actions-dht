@@ -11,3 +11,10 @@ jobs:
       - run: |
           replace '(\[(.+)\]\(([^\s]+)(?: "(.+)")?\))(?!\s-\s\<a\sclass=\"archival\")' '$1 - <a class="archival" aria-label="Internet Archive copy of previous link" href="http://web.archive.org/web/$3">(archive)</a>' test1.md
       - run: echo "One last message"
+      - name: Commit changes
+      uses: EndBug/add-and-commit@v5
+      with:
+        author_name: Link Robot
+        author_email: link@ro.bot
+        message: "put in wayback links"
+        add: "*.md"
