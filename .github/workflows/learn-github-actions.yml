@@ -5,6 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Find and Replace
-      - run: replace '(\[(.+)\]\(([^\s]+)(?: "(.+)")?\))(?!\s-\s\<a\sclass=\"archival\")' '$1 - <a class="archival" aria-label="Internet Archive copy of previous link" href="http://web.archive.org/web/'$current_date'/$3">(archive)</a>' test1.md
-  
+      - run: echo "message 1"
+      - run: |
+          replace '(\[(.+)\]\(([^\s]+)(?: "(.+)")?\))(?!\s-\s\<a\sclass=\"archival\")' '$1 - <a class="archival" aria-label="Internet Archive copy of previous link" href="http://web.archive.org/web/'$current_date'/$3">(archive)</a>' test1.md
+      - run: echo "One last message"
