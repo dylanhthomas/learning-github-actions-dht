@@ -5,6 +5,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+      - run: npm install -g replace
       - run: echo "message 1"
       - run: |
           replace '(\[(.+)\]\(([^\s]+)(?: "(.+)")?\))(?!\s-\s\<a\sclass=\"archival\")' '$1 - <a class="archival" aria-label="Internet Archive copy of previous link" href="http://web.archive.org/web/$3">(archive)</a>' test1.md
