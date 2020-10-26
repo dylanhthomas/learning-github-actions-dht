@@ -1,9 +1,13 @@
-name: learn-github-actions
+name: Way Back Links
 on: [push]
 jobs:
-  check-bats-version:
+  wayback-links:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-      - run: dylanhthomas/learning-github-actions-dht@v6
+    - uses: actions/checkout@v2
+    - name: Find and Replace
+      uses: shitiomatic/str-replace@master
+      with:
+        find: '/(\[(.+)\]\(([^\s]+)(?: "(.+)")?\))(?!\s-\s\<a\sclass=\"archival\")'
+        replace: '$1 - <a class="archival" aria-label="Internet Archive copy of previous link" href="http://web.archive.org/web/$3">(archive)</a>'
+        include: "*.md"  # Do not modify Python files
