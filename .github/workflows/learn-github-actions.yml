@@ -6,9 +6,5 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Find and Replace
-        uses: jacobtomlinson/gha-find-replace@master
-        with:
-          find: regexp.MustCompile(`(?m)(\[(.+)\]\(([^\s]+)(?:\s"(.+)")?\))(?!\s-\s\<a\sclass=\"archival\")`)
-          replace: '$1 - <a class="archival" aria-label="Internet Archive copy of previous link" href="http://web.archive.org/web/$3">(archive)</a>'
-          include: "test1.md"        
-        
+        run: current_date=`date +%Y%m%d` &&  replace '(\[(.+)\]\(([^\s]+)(?: "(.+)")?\))(?!\s-\s\<a\sclass=\"archival\")' '$1 - <a class="archival" aria-label="Internet Archive copy of previous link" href="http://web.archive.org/web/'$current_date'/$3">(archive)</a>' test1.md
+  
